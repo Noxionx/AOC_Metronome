@@ -9,13 +9,13 @@
 
 <Pane fx:controller="view.ViewHandler" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="start" fx:id="start" layoutX="64.0" layoutY="277.0" mnemonicParsing="false" text="Start" />
-      <Button id="stop" fx:id="stop" layoutX="146.0" layoutY="277.0" mnemonicParsing="false" text="Stop" />
-      <Button id="decBar" fx:id="decBar" layoutX="368.0" layoutY="277.0" mnemonicParsing="false" text="Bar -" />
-      <Button id="incBar" fx:id="incBar" layoutX="437.0" layoutY="277.0" mnemonicParsing="false" text="Bar +" />
-      <Slider id="slider" fx:id="slider" layoutX="97.0" layoutY="49.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="44.0" />
-      <TextField id="tempoBox" fx:id="tempoBox" layoutX="186.0" layoutY="97.0" prefHeight="91.0" prefWidth="194.0" />
-      <TextField id="barBox" fx:id="barBox" layoutX="393.0" layoutY="97.0" prefHeight="91.0" prefWidth="62.0" />
+      <Button id="start" fx:id="start" onAction="#onStartBtn" layoutX="64.0" layoutY="277.0" mnemonicParsing="false" text="Start" />
+      <Button id="stop" fx:id="stop" onAction="#onStopBtn" layoutX="146.0" layoutY="277.0" mnemonicParsing="false" text="Stop" />
+      <Button id="decBar" fx:id="decBar" onAction="#onDecBarBtn" layoutX="368.0" layoutY="277.0" mnemonicParsing="false" text="Bar -" />
+      <Button id="incBar" fx:id="incBar" onAction="#onIncBarBtn" layoutX="437.0" layoutY="277.0" mnemonicParsing="false" text="Bar +" />
+      <Slider id="slider" fx:id="slider" onMouseRelease="#onSliderChanged" layoutX="97.0" layoutY="49.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="44.0" />
+      <TextField id="tempoBox" fx:id="tempoBox" disable="true" editable="false" layoutX="186.0" layoutY="97.0" prefHeight="91.0" prefWidth="194.0" />
+      <TextField id="barBox" fx:id="barBox" disable="true" editable="false" layoutX="393.0" layoutY="97.0" prefHeight="91.0" prefWidth="62.0" />
       <Circle id="barLed" fx:id="barLed" fill="#dadada" layoutX="534.0" layoutY="97.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle id="tempoLed" fx:id="tempoLed" fill="#dadada" layoutX="534.0" layoutY="179.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="518.0" layoutY="201.0" prefHeight="15.0" prefWidth="32.0" text="Beat" />
