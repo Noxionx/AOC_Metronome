@@ -1,19 +1,15 @@
 package control;
 
-public abstract class Materiel {
+public class Materiel {
 	
-	private static Afficheur afficheur;
-	private static Clavier clavier;
-	private static EmetteurSonore emetteurSonore;
-	private static Horloge horloge;
-	private static Molette molette;
+	private static Afficheur afficheur = new AfficheurImpl();
+	private static EmetteurSonore emetteurSonore = new EmetteurSonoreImpl();
+	private static Horloge horloge = new HorlogeImpl();
+	private static Molette molette = new MoletteImpl();
 
 	// Permet d’accéder aux interfaces de contrôle du matériel
 	public static Horloge getHorloge(){
 		return horloge;
-	}
-	public static Clavier getClavier(){
-		return clavier;
 	}
 	public static Molette getMolette(){
 		return molette;

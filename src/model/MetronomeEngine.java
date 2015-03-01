@@ -20,6 +20,8 @@ public class MetronomeEngine {
 		beepCmd = new BeepCommand();
 		tempoLed = new LedCommand(0);
 		mesureLed = new LedCommand(1);
+		Materiel.getAfficheur().afficherTempo(tempo);
+		Materiel.getAfficheur().afficherMesure(mesure);
 		
 	}
 	
@@ -29,7 +31,7 @@ public class MetronomeEngine {
 	public void start(){
 		if(!isRunning){
 			isRunning = true;
-			Materiel.getHorloge().activerPeriodiquement(beepCmd, getPeriode());
+			//Materiel.getHorloge().activerPeriodiquement(beepCmd, getPeriode());
 			Materiel.getHorloge().activerPeriodiquement(tempoLed, getPeriode());
 			Materiel.getHorloge().activerPeriodiquement(mesureLed, getPeriode()*mesure);	
 		}
@@ -40,7 +42,7 @@ public class MetronomeEngine {
 	public void stop(){
 		if(isRunning){
 			isRunning = false;
-			Materiel.getHorloge().desactiver(beepCmd);
+			//Materiel.getHorloge().desactiver(beepCmd);
 			Materiel.getHorloge().desactiver(tempoLed);
 			Materiel.getHorloge().desactiver(mesureLed);
 		}
@@ -60,6 +62,7 @@ public class MetronomeEngine {
 	public void setTempo(int tempo) {
 		if(tempo!=this.tempo){
 			this.tempo = tempo;
+			Materiel.getAfficheur().afficherTempo(tempo);
 			stop();
 			start();
 		}
@@ -67,6 +70,7 @@ public class MetronomeEngine {
 	public void incMesure(){
 		if(this.mesure<7){
 			this.mesure++;
+			Materiel.getAfficheur().afficherMesure(mesure);
 			stop();
 			start();
 		}
@@ -74,6 +78,7 @@ public class MetronomeEngine {
 	public void decMesure(){
 		if(this.mesure>2){
 			this.mesure --;
+			Materiel.getAfficheur().afficherMesure(mesure);
 			stop();
 			start();
 		}
@@ -83,7 +88,9 @@ public class MetronomeEngine {
 	}
 	private float getPeriode(){
 		float secsInMin = 60;
-		return (float)(secsInMin/Float.parseFloat(Integer.toString(tempo)));
+		float periode = (float)(secsInMin/Float.parseFloat(Integer.toString(tempo)));
+		System.out.println(periode);
+		return periode;
 	}
 	
 }

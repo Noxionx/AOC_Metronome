@@ -8,4 +8,5 @@ public interface Afficheur {
 	
 	// Affiche un entier sur l’afficheur externe du métronome
 	void afficherTempo(int valeurTempo) ;
+	void afficherMesure(int valeurMesure);
 }

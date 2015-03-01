@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commands.Command;
+import commands.PeriodicTask;
 
 public class HorlogeImpl implements Horloge {
 	
@@ -11,10 +12,10 @@ public class HorlogeImpl implements Horloge {
 
 	@Override
 	public void activerPeriodiquement(Command cmd, float periodeEnSecondes) {
-		PeriodicTask task = new PeriodicTask(cmd, (int)(periodeEnSecondes*1000));
-		tasks.add(task);
-		task.start();
 		
+		PeriodicTask task = new PeriodicTask(cmd,(int)(periodeEnSecondes*1000));
+		task.start();
+		tasks.add(task);	
 	}
 
 	@Override
@@ -30,11 +31,10 @@ public class HorlogeImpl implements Horloge {
 
 	@Override
 	public void desactiver(Command cmd) {
-		// TODO Auto-generated method stub
-		for(PeriodicTask task : tasks){
-			if(task.getCommand().equals(cmd)){
-				task.stopExecution();
-				tasks.remove(task);
+		for(int i = 0; i<tasks.size(); i++){
+			if(tasks.get(i).getCommand().equals(cmd)){
+				tasks.get(i).stop();
+				tasks.remove(i);
 			}
 		}
 		
