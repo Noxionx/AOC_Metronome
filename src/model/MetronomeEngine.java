@@ -31,7 +31,7 @@ public class MetronomeEngine {
 	public void start(){
 		if(!isRunning){
 			isRunning = true;
-			//Materiel.getHorloge().activerPeriodiquement(beepCmd, getPeriode());
+			Materiel.getHorloge().activerPeriodiquement(beepCmd, getPeriode());
 			Materiel.getHorloge().activerPeriodiquement(tempoLed, getPeriode());
 			Materiel.getHorloge().activerPeriodiquement(mesureLed, getPeriode()*mesure);	
 		}
@@ -42,7 +42,7 @@ public class MetronomeEngine {
 	public void stop(){
 		if(isRunning){
 			isRunning = false;
-			//Materiel.getHorloge().desactiver(beepCmd);
+			Materiel.getHorloge().desactiver(beepCmd);
 			Materiel.getHorloge().desactiver(tempoLed);
 			Materiel.getHorloge().desactiver(mesureLed);
 		}
