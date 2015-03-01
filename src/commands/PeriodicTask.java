@@ -9,6 +9,7 @@ public class PeriodicTask{
 	private int msPeriode;
 	private Timer timer;
 	
+	//Gestion de l'execution périodique d'une commande (Timer)
 	public PeriodicTask(Command cmd, int msPeriode){
 		this.cmd = cmd;
 		this.msPeriode = msPeriode;

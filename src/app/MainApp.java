@@ -33,19 +33,26 @@ public class MainApp extends Application{
 	
 	@Override
 	public void start(Stage stage) throws Exception {
+		//Récupération du fichier de description de la vue (FXML)
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/View.fxml"));
         Parent root = (Parent)loader.load(getClass().getResource("/view/View.fxml").openStream());
-		stage.setTitle("Nox's Metronome");
+		//Titre de la fenètre
+        stage.setTitle("Nox's Metronome");
 		
+        //Dimentionnement de la scene
 		scene = new Scene(root, 640, 480);
+		
+		//Création du model / vue / controlleur
 		view = loader.<ViewHandler>getController() ;
 		engine = new MetronomeEngine();
 		controller = new Controller(engine);
 		
 
+		//Ajout de la scene à la fenètre et affichage
 		stage.setScene(scene);
 		stage.show();
 		
+		//Gestion de bouton de fermeture de la fenètre
 		stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	          public void handle(WindowEvent we) {
 	              engine.stop();
